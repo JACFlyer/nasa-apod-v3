@@ -5,14 +5,18 @@ CREATE TABLE IF NOT EXISTS `Apod`
     `title`       TEXT                              NOT NULL COLLATE NOCASE,
     `description` TEXT                              NOT NULL,
     `copyright`   TEXT,
-    `media_type`  TEXT                              NOT NULL,
+    `media_type`  INTEGER                           NOT NULL,
     `url`         TEXT                              NOT NULL,
     `hd_url`      TEXT
 );
 
-CREATE UNIQUE INDEX IF NOT EXISTS `index_Apod_date` ON `Apod` (`date`);
+CREATE UNIQUE INDEX IF NOT EXISTS `Apod` ON `Apod` (`date`);
 
-CREATE TABLE IF NOT EXISTS `Access`
+
+CREATE INDEX IF NOT EXISTS `Access` ON `Access`;
+
+
+CREATE TABLE IF NOT EXISTS `Apod`
 (
     `access_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     `apod_id`   INTEGER                           NOT NULL,
@@ -20,4 +24,14 @@ CREATE TABLE IF NOT EXISTS `Access`
     FOREIGN KEY (`apod_id`) REFERENCES `Apod` (`apod_id`) ON UPDATE NO ACTION ON DELETE CASCADE
 );
 
-CREATE INDEX IF NOT EXISTS `index_Access_apod_id` ON `Access` (`apod_id`);
+
+
+
+
+
+
+
+
+
+
+
