@@ -10,20 +10,6 @@ CREATE TABLE IF NOT EXISTS `Apod`
     `hd_url`      TEXT
 );
 
-CREATE UNIQUE INDEX IF NOT EXISTS `Apod` ON `Apod` (`date`);
-
-
-CREATE INDEX IF NOT EXISTS `Access` ON `Access`;
-
-
-CREATE TABLE IF NOT EXISTS `Apod`
-(
-    `access_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    `apod_id`   INTEGER                           NOT NULL,
-    `timestamp` INTEGER                           NOT NULL,
-    FOREIGN KEY (`apod_id`) REFERENCES `Apod` (`apod_id`) ON UPDATE NO ACTION ON DELETE CASCADE
-);
-
 
 
 
